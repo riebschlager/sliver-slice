@@ -6,15 +6,29 @@ ArrayList<Slice> slices = new ArrayList<Slice>();
 Random generator = new Random();
 
 void setup() {
-  src = loadImage("2936125672_073fdd9f6c_o.jpg");
+  // Get your own damn source material.
+  src = loadImage("tumblr_mn49i4ZsLd1qz6f9yo1_1280.jpg");
   size(src.width, src.height);
   image(src, 0, 0);
 }
 
-void mousePressed() {
-  sliceVerticalRandom();
-  int r = (int) random(1000000000);
-  //save("output/"+r+".tif");
+void keyPressed() {
+  if (key == ' ') {
+    int r = (int) random(1000000000);
+    save("output/"+r+".tif");
+  }
+  if (key == 'h') {
+    sliceHorizontal(10);
+  }
+  if (key == 'H') {
+    sliceHorizontalRandom();
+  }
+  if (key == 'v') {
+    sliceVertical(10);
+  }
+  if (key == 'V') {
+    sliceVerticalRandom();
+  }
 }
 
 void draw() {
